@@ -1,0 +1,66 @@
+
+<Factorial>:
+    numeroIngresado: txtNumeroIngresado.text
+    BoxLayout:
+        orientation: 'vertical'
+        GridLayout:
+            cols: 2
+            Label:
+                text: 'Ingrese un número:'
+            TextInput:
+                background_color: (0,1,0,1)
+                id: txtNumeroIngresado
+
+        Button:
+            text: 'Calcular factorial'
+            on_press: root.calcularFactorial()
+
+        Label:
+            text: root.resultado
+
+        Button:
+            text: 'Ir a sumador'
+            on_press: root.irASumador()
+
+<Sumador>:
+    numero1: txtNumero1.text
+    numero2: txtNumero2.text
+    BoxLayout:
+        orientation: 'vertical'
+        GridLayout:
+            cols: 2
+            Label:
+                text: 'Ingrese el primer número:'
+            TextInput:
+                background_color: (0,1,0,1)
+                id: txtNumero1
+            Label:
+                text: 'Ingrese el segundo número:'
+            TextInput:
+                background_color: (0,1,0,1)
+                id: txtNumero2
+
+        Button:
+            text: 'Calcular suma'
+            on_press: root.sumar()
+
+        Label:
+            text: root.resultado
+
+        Button:
+            text: 'Ir a factorial'
+            on_press: root.irAFactorial()
+
+<IoT>:
+    BoxLayout:
+        orientation: 'vertical'
+        GridLayout:
+            cols: 2
+            Button:
+                text: 'Alternar Luz'
+                on_press: root.alternarLuz()
+            Image:
+                source: root.imagen_luz
+                size: self.texture_size
+
+

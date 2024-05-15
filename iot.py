@@ -1,15 +1,17 @@
 from _thread import start_new_thread
 
 from kivy.clock import mainthread
-from kivy.properties import BooleanProperty, StringProperty
+from kivy.properties import BooleanProperty, StringProperty, NumericProperty
 from kivy.uix.screenmanager import Screen
 
-from comm import Listener, Publisher
+from external_comm import UbidotsPublisher
+from internal_comm import Listener, Publisher
 
 
 class IoT(Screen):
     estadoLuz = BooleanProperty(False)
     imagen_luz = StringProperty('light_off.png')
+    estado_termometro = NumericProperty(0.0)
 
     def __init__(self, **kw):
         super().__init__(**kw)
@@ -31,8 +33,11 @@ class IoT(Screen):
         if self.estadoLuz:
             print('cambia a on')
             self.imagen_luz = 'light_on.png'
+            UbidotsPublisher.send_message('{variable}', '1')
         else:
             print('cambia a off')
             self.imagen_luz = 'light_off.png'
+            UbidotsPublisher.send_message('{variable}', '0')
+
 
 

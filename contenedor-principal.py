@@ -6,7 +6,7 @@ from iot import IoT
 from sumador import Sumador
 
 
-class Contenedor(App):  # el archivo kv debe llamarse igual
+class Contenedor(App):  # el archivo kv debe llamarse igual que esta clase
     sm = ScreenManager()
 
     def build(self):
